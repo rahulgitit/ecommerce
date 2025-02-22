@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container text-center bg-secondary text-white p-5 rounded mt-2">
+        <h1  class="text-center">your cart is empty</h1>
+        <img src="{% static 'images/other image/setting icon/emptycart.png' %}" class="img-thumbnail" style="height: 300px"; alt="">
+        {% comment %} <img src="{% static 'images/other image/setting icon/call.png' %}" class="rounded float-left" alt="..."> {% endcomment %}
+
+    </div>
+    {% endblock content %}

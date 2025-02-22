@@ -1,0 +1,120 @@
+  {% extends "base.html" %}
+  {% load static %}
+  <!-- {% block title %}banner-slider{% endblock title %} -->
+  {% block banner_slider %}
+  <div class="container-fluid header">
+
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="10000">
+          <img src="{% static 'images/banner/b1.jpg' %}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+          <img src="{% static "images/banner/b2.jpg" %}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static "images/banner/b3.jpg" %}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static "images/banner/b4.jpg" %}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static "images/banner/b5.jpg" %}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static "images/banner/b6.jpg" %}" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    {% endblock banner_slider %}
+  </div>
+
+    {% block livesale %}
+    <div class="container text-center bg-danger p-2">
+      <div class="row">
+        <div class="col-sm-6 offset-sm-3 text-white">
+          <h1 class="pt-4">SALE IS LIVE NOW</h1>
+          <p class="px-5 ">5% Instant Discount on Axis Bank Credit and Debit Card
+            term and Condition Applied (For details visit banks official Webdite)
+          </p>
+        </div>
+      </div>
+    </div>
+    {% endblock livesale %}
+
+    {% block content %}
+    <div class="container-fluid m-3">
+      <h3 class="text-capitalize">best mobile</h3>
+      <div class="row">
+        {% for mobile in mobile %}
+        <div class="card m-1" style="width:16rem;" height="250px">
+          <a href="{% url "product_details" mobile.id %}" class="btn p-0">
+            <img src={{mobile.product_images.url}} style="width:15rem;" height="250px" alt="">
+            <div class="card-body">
+              <h5 class="card-title">Card title: {{mobile.title}}</h5>
+              <h6 class="card-subtitle text-muted ">selling_price: {{mobile.selling_price}}</h6>
+              <p>{{mobile.discriptions}}</p>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+      
+      <h3 class="text-capitalize">best laptop</h3>
+      <div class="row">
+        {% for laptop in laptop %}
+        <div class="card m-1" style="width:16rem;" height="250px">
+          <a href="{% url "product_details" laptop.id %}" class="btn p-0">
+            <img src={{laptop.product_images.url}} class="img_laptop img-thumbnail" style="width:15rem;" alt="">
+            <div class="card-body">
+              <h5 class="card-title">Card title: {{laptop.title}}</h5>
+              <h6 class="card-subtitle text-muted ">selling_price: {{laptop.selling_price}}</h6>
+              <p>{{laptop.discriptions}}</p>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="row">
+        <h3 class="text-capitalize">shell with topwear</h3>
+        {% for top in topwear %}
+        <div class="card m-1" style="width:16rem;" height="250px">
+          <a href="{% url "product_details" top.id %}" class="btn p-0">
+            <img src={{top.product_images.url}} style="width:13rem;" height="250px" alt="">
+            <div class="card-body">
+              <h5 class="card-title">Card title: {{top.title}}</h5>
+              <h6 class="card-subtitle text-muted ">selling_price: {{top.selling_price}}</h6>
+              <p>{{top.discriptions}}</p>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="row" height="300px">
+        <h3 class="text-capitalize">shell with bottomwear</h3>
+        {% for bot in bottomwear %}
+        <div class="card m-1" style="width:16rem;" height="250px">
+          <a href="{% url "product_details" bot.id %}" class="btn p-0 m-0">
+            <img src={{bot.product_images.url}} style="width:13rem;" height="250px" alt="">
+            <div class="card-body">
+              <h5 class="card-title">Card title: {{bot.title}}</h5>
+              <h6 class="card-subtitle text-muted ">selling_price: {{bot.selling_price}}</h6>
+              <p  class="m-0">disconted_price: {{bot.discount_price}}</p>
+              <p class="m-0">{{bot.discriptions}}</p>
+              
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endblock content %}
+  

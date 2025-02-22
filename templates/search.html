@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h1>please search the items</h1>
+<div class="container">
+    <div class="row">
+        {% for data in data %}
+        <div class="card m-1" style="width:16rem;" height="250px">
+          <a href="{% url 'product_details' data.id %}" class="btn p-0">
+            <img src={{data.product_images.url}} style="width:15rem;" height="250px" alt="">
+            <div class="card-body">
+              <h5 class="card-title">Card title: {{data.title}}</h5>
+              <h6 class="card-subtitle text-muted ">selling_price: {{data.selling_price}}</h6>
+              <p>{{data.discriptions}}</p>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row mb-5">
+        <div class="col-sm-4 offset-sm-4 bg-info rounded-3 mt-3">
+            <h2 class="text-center m-3 text-white">Login Form</h2>
+            <form action="" method="post">
+                {% csrf_token %}
+                {% for fm in form %}
+                {{fm.label_tag}}
+                {{fm}}
+                {{fm.errors|striptags}}
+                {% endfor %}
+                <input type="submit" class=" btn btn-danger m-4 form-control" value="submit">
+                {% comment %} <a href="{% url 'password_change' %}" class ="text-white">Password Change</a> {% endcomment %}
+                <a href="{% url 'password_reset' %}" class ="text-white">forgote password</a>
+
+            </form>
+            {% for message in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong>message!</strong> {{message}}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="row">
+    <h3 class="text-capitalize">Welcome {{request.user}}</h3>
+    <div class="col-sm-2 border-end">
+      <ul class="list-unstyled">
+        <li class="d-grid"><a href="{% url 'profile' %}" class="btn {{active}}">Profile</a></li>
+        <li class="d-grid"><a href="{% url 'address' %}" class="btn">Address</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-6 offset-sm-1">
+      <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" class=" btn btn-danger m-4" value="submit">
+      </form>
+      {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }} </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock content %}

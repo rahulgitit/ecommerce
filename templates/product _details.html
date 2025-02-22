@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row m-5">
+        <div class="col-sm-6">
+            <img src="{{obj.product_images.url}}" alt="">
+        </div>
+        <div class="col-sm-6">
+            <h1 class="text-capitalize">product details {{obj.title}}</h1>
+            <hr>
+            <p>brand: {{obj.brand}}</p>
+            <p>product descriptions: {{obj.discriptions}}</p>
+            <h5>{{obj.discount_price}} <small class="fw-light text-decoration-line-through">
+                    {{obj.selling_price}}</small></h5>
+
+            <form action="/add_to_cart" class="d-inline">
+                <input hidden name="obj_id" value={{obj.id}} id="obj_id">
+                <button type="submit" class="btn btn-info">add_to_cart</button>  
+            </form>
+            
+            <a href="#" class="btn btn-danger shadow ms-4">Buy Now</a>
+
+            <h5 class="mt-5">Available Offers</h5>
+            <ul>
+                <li>Bank Offer 5% Unlimited Cashback on Flipkart Axis Bank Credit</li>
+                <li>Special Price Get extra ₹3000 off (price inclusive of discount)</li>
+                <li>No cost EMI ₹1,667/month. Standard EMI also available</li>
+                <li>Partner Offer ₹2000 Flipkart Gift Card on Every 1000th Transaction with a new Visa Debit/Credit Card
+                </li>
+            </ul>
+        </div>
+        </di>
+    </div>
+    {% endblock content %}
