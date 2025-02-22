@@ -30,4 +30,4 @@ class CartViewSet(viewsets.ModelViewSet):
 
 class OrderPlaceViewSet(viewsets.ModelViewSet):
         queryset = orderplace.objects.all()
-        serializer_class = OrderPlaceSerializer
+        
