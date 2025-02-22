@@ -33,7 +33,7 @@ class LoginSerializer(serializers.Serializer):
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = customer
-        fields = ['id', 'user', 'name', 'phone', 'email', 'city', 'state', 'pincode']
+        fields = ['id','user', 'name', 'phone', 'email', 'city', 'state', 'pincode']
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
