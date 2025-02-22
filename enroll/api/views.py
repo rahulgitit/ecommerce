@@ -19,3 +19,15 @@ class UserViewSet(viewsets.ModelViewSet):
 class CustomerViewSet(viewsets.ModelViewSet):
         queryset = customer.objects.all()
         serializer_class = CustomerSerializer
+
+class ProductViewSet(viewsets.ModelViewSet):
+        queryset = product.objects.all()
+        serializer_class = CustomerSerializer
+
+class CartViewSet(viewsets.ModelViewSet):
+        queryset = cart.objects.all()
+        serializer_class = CartSerializer
+
+class OrderPlaceViewSet(viewsets.ModelViewSet):
+        queryset = orderplace.objects.all()
+        serializer_class = OrderPlaceSerializer
